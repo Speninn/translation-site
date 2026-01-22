@@ -1,0 +1,764 @@
+/* ============================================
+   LÍNA.IS - CLEAN MODERN DESIGN
+   ============================================ */
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-background: #ffffff;
+  --color-background-alt: #f9fafb;
+  --color-background-subtle: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.brand:hover {
+  opacity: 0.8;
+}
+
+/* CSS LOGO - Translation Icon */
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-icon::before,
+.logo-icon::after {
+  content: '';
+  position: absolute;
+  border: 2.5px solid var(--color-text);
+  border-radius: 8px;
+  background: var(--color-background);
+}
+
+/* Left speech bubble with right arrow */
+.logo-icon::before {
+  width: 20px;
+  height: 16px;
+  left: 0;
+  top: 4px;
+  background-image: 
+    linear-gradient(to right, var(--color-text) 40%, transparent 40%),
+    linear-gradient(to right, var(--color-text) 40%, transparent 40%);
+  background-size: 10px 2px, 10px 2px;
+  background-position: center 5px, center 9px;
+  background-repeat: no-repeat;
+}
+
+/* Arrow tip (right) */
+.logo-icon::after {
+  width: 20px;
+  height: 16px;
+  right: 0;
+  bottom: 4px;
+  background-image: 
+    linear-gradient(to left, var(--color-text) 40%, transparent 40%),
+    linear-gradient(to left, var(--color-text) 40%, transparent 40%);
+  background-size: 10px 2px, 10px 2px;
+  background-position: center 5px, center 9px;
+  background-repeat: no-repeat;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.nav-cta {
+  background: var(--color-primary);
+  color: white !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 6px;
+  border: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Out-of-focus flag backgrounds in hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background: url('flag-iceland.png') center/cover no-repeat;
+  filter: blur(40px);
+  opacity: 0.15;
+  top: -50px;
+  right: 10%;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 180px;
+  background: url('flag-uk.png') center/cover no-repeat;
+  filter: blur(35px);
+  opacity: 0.12;
+  bottom: -30px;
+  left: 5%;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.badge {
+  background: var(--color-background-subtle);
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.btn.primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.btn.primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn:not(.primary) {
+  background: var(--color-background);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn:not(.primary):hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.fineprint {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+}
+
+/* Hero Card */
+.hero-card {
+  position: relative;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+}
+
+.card-subtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.list {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.list li {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 1.5rem 0;
+}
+
+.muted {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Out-of-focus flags in about section */
+.about-section::before {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 190px;
+  background: url('flag-france.png') center/cover no-repeat;
+  filter: blur(45px);
+  opacity: 0.1;
+  top: 20%;
+  right: -50px;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.about-section::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 180px;
+  background: url('flag-spain.png') center/cover no-repeat;
+  filter: blur(40px);
+  opacity: 0.1;
+  bottom: 10%;
+  left: -40px;
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content h2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.about-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.language-flags {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: var(--color-background-subtle);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.flag-item {
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.flag-emoji {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section.alt {
+  background: var(--color-background-alt);
+}
+
+.section h2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-text);
+}
+
+/* Services Grid */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.panel:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.panel h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.panel p {
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* Languages section with flag backgrounds */
+#languages {
+  position: relative;
+  overflow: hidden;
+}
+
+#languages::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 140px;
+  background: url('flag-iceland.png') center/cover no-repeat;
+  filter: blur(30px);
+  opacity: 0.08;
+  top: 15%;
+  left: 5%;
+  z-index: 0;
+  border-radius: 15px;
+}
+
+#languages::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 140px;
+  background: url('flag-france.png') center/cover no-repeat;
+  filter: blur(30px);
+  opacity: 0.08;
+  bottom: 15%;
+  right: 5%;
+  z-index: 0;
+  border-radius: 15px;
+}
+
+#languages .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Process Steps */
+.steps {
+  list-style: none;
+  max-width: 800px;
+  margin: 2rem auto;
+  counter-reset: step-counter;
+}
+
+.steps li {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  position: relative;
+  counter-increment: step-counter;
+}
+
+.steps li::before {
+  content: counter(step-counter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.steps li strong {
+  display: block;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.steps li span {
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  margin: 1.5rem 0;
+}
+
+.contact-box p {
+  margin-bottom: 0.75rem;
+}
+
+.contact-box a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--color-text);
+  color: #9ca3af;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer .muted {
+  color: #9ca3af;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 968px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.25rem;
+  }
+
+  .language-flags {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header-inner {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav a {
+    text-align: center;
+  }
+
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .hero-text h1 {
+    font-size: 1.875rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+  }
+
+  .badges {
+    justify-content: center;
+  }
+
+  .steps li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .language-flags {
+    grid-template-columns: 1fr;
+  }
+}
